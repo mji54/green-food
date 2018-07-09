@@ -1,0 +1,79 @@
+Introduction
+
+
+PLUGIN
+
+figure out location -->
+bubble --> suggested restaurants [ search for more ] [ "propaganda" ]
+                                 [ search for more is a search bar ] --> filtered restaurants
+                                                      [ "propaganda" ] --> a "propaganda" page with recommended restaurants
+
+IP address (or the location the customer entered?)
+--> (after a minute or so) bubble (filter out the searched results)
+-->
+
+*coding is my real strength*
+*product designer internship*
+*I'm more than just product designer though*
+
+*here's a sample product design*
+*Title: Organic Food Business Line*
+*Purpose*
+  *clients*:
+    identified different kinds of customers:
+    *Target Audience*
+      - pregnant women
+        *estimations*
+          millions of potential customers in the U.S.
+      - busy people
+        *estimations*
+          millions of potential customers in the U.S.
+      - "propaganda"
+    *Wireframe/Workflow* (use finite state machine (state<-->transition due to event(s)) to describe?)
+      [results page] [after 30 seconds] [make suggestions!]: green-food bubble: list of dish choices for green food
+      --> [chownow's green-food portal page]:
+              clicked on dish,
+              other recommended dishes from the restaurant,
+              additional search dish (search bar) + cookie (the location the user entered initially),
+              educate/"propaganda"
+
+  *businesses*:
+    more attractive to organic restaurants:
+      *benefits of the features*
+      attract people to go to organic restaurants --> automatically amazing!
+      --> join! --> positive reinforcement!
+
+
+location --> list of dishes -->
+
+
+
+*Implementation*
+  React
+  Redux
+  React-bootstrap
+  React-router
+  Responsive
+
+  if BIG DATA/LONG-LIST: Async (React-select)
+
+
+(after 3 times, no more pop-up)
+
+
+  ---------------
+  Components (make it reusable/portable):
+  [copied] SearchResult
+  [copied] Restaurant
+  Bubble
+    - words
+    - dish
+    *initially*: pop-up + change every x seconds
+    *if time left*: fancy animation
+  Selected
+    - selected dish(es) (with corresponding restaurant links)
+  SearchMore
+    - given the location
+    - search more meals
+  Promotion
+    - a good layout!
