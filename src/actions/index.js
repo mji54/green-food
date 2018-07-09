@@ -1,10 +1,20 @@
-import { START_TIMER, UPDATE_TIME } from '../constants';
+import { SELECT_DISH_TYPE } from '../constants';
 
-export const startTimer = time => ({
-  type: START_TIMER,
-  time
+
+export const selectDishType = index => ({
+  type: SELECT_DISH_TYPE,
+  index
 })
 
-export const updateTime = () => ({
-  type: UPDATE_TIME
-})
+// export const incrementTimer = () => ({
+//   type: INCREMENT_TIMER
+// })
+
+// export const startTimer = time => ({
+//   type: START_TIMER,
+//   time
+// })
+//
+// export const updateTime = () => ({
+//   type: UPDATE_TIME
+// })

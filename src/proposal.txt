@@ -70,7 +70,7 @@ location --> list of dishes -->
     - dish
     *initially*: pop-up + change every x seconds
     *if time left*: fancy animation
-  Selected
+  SelectedDish
     - selected dish(es) (with corresponding restaurant links)
   SearchMore
     - given the location

@@ -10,6 +10,7 @@ import reducer from './reducers';
 import createHistory from "history/createBrowserHistory";
 
 import App from './components/App';
+import Selected from './components/Selected'
 
 const history = createHistory();
 const store = createStore(reducer);
@@ -18,9 +19,10 @@ ReactDOM.render(
 
   <Provider store={store}>
     <main>
-      <Router exact path="/" history={history}>
+      <Router path="/" history={history}>
         <Switch>
-            <Route path="/" render={({ match }) => <App match={match} {...this.props} />} />
+            <Route exact path="/" render={({ match }) => <App match={match} {...this.props} />} />
+            <Route exact path="/selected" component={Selected} />} />
         </Switch>
       </Router>
     </main>

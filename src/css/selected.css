@@ -1,0 +1,21 @@
+Table {
+  margin-top: 2em;
+}
+
+.space {
+  /* border: 1px solid red; */
+  height: 70px;
+}
+
+.dish {
+  /* flex-grow: 1; */
+}
+
+.dish-display {
+  margin-top: 1em;
+}
+
+.display-flex {
+  /* display: flex;
+  flex-wrap: wrap; */
+}

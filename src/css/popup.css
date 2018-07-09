@@ -1,3 +1,11 @@
+/*
+code reference: https://codepen.io/anon/pen/xJKKXp
+*/
+
+.hidden {
+  display: none;
+}
+
 h1 {
   margin: 0;
   padding: 0;
@@ -18,8 +26,8 @@ html, body, .app {
   right: 0;
   bottom: 0;
   margin: auto;
-  margin-top: 150px;
-  background-color: rgba(0,0,0, 0.5);
+  margin-top: 100px;
+  background-color: rgba(0,0,0,0);
   border-radius: 0;
 }
 .popup_inner {
@@ -32,10 +40,9 @@ html, body, .app {
   width: 300px;
   height: 300px;
   margin: auto;
-  background: white;
+  background: rgba(0,0,0,0);
   display: flex;
   align-items: center;
-  border-radius: 10px;
 }
 
 .popup-content {
@@ -46,8 +53,8 @@ html, body, .app {
 }
 
 .popover {
-  top: -20%;
-  left: -5%;
+  top: -13%;
+  left: 5%;
 }
 
 .popup-img {
@@ -55,4 +62,5 @@ html, body, .app {
   height: 200px;
   object-fit: cover;
   margin: 0 auto;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5)
 }

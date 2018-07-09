@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import bubble from './reducer_bubble';
+import dish from './reducer_dish';
 // import goals from './reducer_goals';
 
 export default combineReducers({
-  bubble
+  dish
 })
