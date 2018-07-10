@@ -8,14 +8,149 @@ Table {
 }
 
 .dish {
+  /* border: 1px solid red; */
+  width: 60%;
+  margin: 0 auto;
+
   /* flex-grow: 1; */
 }
 
 .dish-display {
-  margin-top: 1em;
+  margin-top: 3em;
 }
 
-.display-flex {
-  /* display: flex;
-  flex-wrap: wrap; */
+.pointer-cursor:hover {
+  cursor: pointer;
+}
+
+.dummy-content {
+  height: 200px;
+  display: flex;
+  align-items: center;
+}
+
+span {
+  align-self: center;
+  margin: 0 auto;
+  text-align: center;
+  /* border: 1px solid red; */
+}
+
+.restaurant-title {
+  color: green;
+}
+
+.page {
+
+}
+
+.carousel {
+  /* border: 1px solid red; */
+  max-height: 450px;
+  display: flex;
+  align-items: center;
+  overflow-y: hidden;
+}
+
+.col-container {
+  padding: 0;
+  margin: 0
+}
+
+.form-container {
+  border: 1px solid blue;
+  display: flex;
+  /* align-items: center; */
+}
+
+.form-group {
+  border: 1px solid green;
+  width: 85%;
+  display: flex;
+  align-content: center;
+}
+
+.control {
+  border: 1px solid red;
+  width: 100%;
+  align-self: center;
+}
+
+.search {
+  width: 100%;
+  height: 100%;
+  display: block;
+  /* border: 1px solid red; */
+  border-radius: 0px;
+  border: none;
+  shadow: none;
+  border-bottom: 1px solid #E5EAE7;
+}
+
+.wrapper {
+  /* display: block; */
+  border: 1px solid #E5EAE7;
+  /* border-bottom:none; */
+  padding: 0;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  height: 60px;
+  /* margin: 0 auto; */
+  text-align: center;
+  border-top: none;
+  border-left: none;
+}
+
+.search-btn {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 0px;
+  border: none;
+  shadow: none;
+  border-bottom: 1px solid #E5EAE7;
+}
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+  .dish {
+    width: 75%;
+  }
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .dish {
+    width: 77%;
+  }
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+  .dish {
+    width: 80%;
+  }
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .dish {
+    width: 90%;
+  }
+  .col-block {
+    display: block;
+    width: 50%;
+  }
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+  .dish {
+    width: 100%;
+  }
+  .col-block {
+    display: block;
+    width: 100%;
+  }
 }

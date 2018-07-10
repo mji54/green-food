@@ -1,10 +1,20 @@
-import { SELECT_DISH_TYPE } from '../constants';
+import { SELECT_DISH_TYPE, UPDATE_INPUT } from '../constants';
 
 
 export const selectDishType = index => ({
   type: SELECT_DISH_TYPE,
   index
 })
+
+export const updateInput = input => ({
+  type: UPDATE_INPUT,
+  input
+})
+//
+// export const searchForDish = input => ({
+//   type: SEARCH_FOR_DISH,
+//   input
+// })
 
 // export const incrementTimer = () => ({
 //   type: INCREMENT_TIMER

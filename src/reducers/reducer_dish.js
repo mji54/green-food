@@ -2,10 +2,13 @@ import { SELECT_DISH_TYPE } from '../constants.js';
 
 import { bake_cookie, read_cookie } from 'sfcookies';
 
-// let timeLog = {
-//   currentTime: Date.now(),
-//   expireTime: null
-// }
+// const filterMenu = (id) => (
+//   MENU.map( meal => (
+//     if (meal.id === id) return meal
+//   ))
+// )
+
+// selected-meal-type
 
 export default (state = -1, action) => {
   let index = null;
