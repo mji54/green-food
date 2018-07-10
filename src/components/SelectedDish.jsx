@@ -10,7 +10,8 @@ import { MENU } from "../menu"
 
 const mapStateToProps = state => {
   // instead of INDEX, this should be an ARRAY now
-  return { dish: state.dish };
+  // console.log(state.dishes);
+  return { dishes: state.dishes };
 }
 
 const tooltip = (
@@ -43,59 +44,71 @@ class SelectedDish extends Component {
   }
 
   render() {
+    var numItems = 0;
+    this.props.dishes.map(meal => {
+      numItems += meal.dishes.length;
+    });
+
     return (
       <div>
         <Grid fluid>
-          <Row className="show-grid">
+          <Row className="show-grid dish-row">
             <div className="dish-display">
               {
-                this.props.dish === -1 ? "":
+                this.props.dishes.length === 0 ?
                 (
-                  MENU.map(el => {
-                    if (el.id === this.props.dish) {
-                      var num = 12/el.dishes.length;
+                  <Col xs={12} md={12} className="no-result">
+                    <span>No Results.</span>
+                  </Col>
+                )
+                :
+                (
+                  this.props.dishes.map(item => {
+                    var num = 12/numItems;
                       return (
-                        el.dishes.map(each => {
-                          return (
-                            <div className="dish" key={el.id + "-" + each.id}>
-                              <Col className="col-block" xs={num} md={num}>
-                                <Thumbnail className="pointer-cursor" onClick={() => this.handleShow(each.dish)} src={require("../img/popup-meal-" + el.id + ".jpg")} alt="242x200">
-                                  <OverlayTrigger placement="top" overlay={tooltip}>
-                                    <h3
-                                      onClick={this.handleShow}
+                      item.dishes.map(each => {
+                        return (
+                            <Col
+                              className="thumb-col"
+                              xs={num < 4 ? 4 : num}
+                              md={num < 4 ? 4 : num}
+                              key={item.typeId + '-' +each.id}
+                            >
+                              <Thumbnail className="pointer-cursor thumbnail" onClick={() => this.handleShow(each.dish)} src={require("../img/popup-meal-" + item.typeId + ".jpg")} alt="242x200">
+                                <OverlayTrigger placement="top" overlay={tooltip}>
+                                  <h3
+                                    onClick={this.handleShow}
 
-                                    >
-                                      {each.dish}
-                                    </h3>
-                                  </OverlayTrigger>
+                                  >
+                                    {each.dish}
+                                  </h3>
+                                </OverlayTrigger>
 
-                                  <Link to={"restaurant/"}>
-                                    <p className="restaurant-title">{each.restaurant}</p>
-                                  </Link>
+                                <Link to={"restaurant/"}>
+                                  <p className="restaurant-title">{each.restaurant}</p>
+                                </Link>
 
-                                </Thumbnail>
-                                <Modal
-                                  show={this.state.show}
-                                  onHide={this.handleClose}
-                                >
-                                  <Modal.Header closeButton>
-                                    <Modal.Title>{ this.state.currentDish }</Modal.Title>
-                                  </Modal.Header>
-                                  <Modal.Body>
-                                    <div className="dummy-content">
-                                      <span>
-                                        <h4>This is a dummy page.</h4>
-                                        <h5><i>Directly ordering dish <strong>{this.state.currentDish}</strong> from this restaurant.</i></h5>
-                                      </span>
-                                    </div>
-                                  </Modal.Body>
-                                </Modal>
-                              </Col>
-                            </div>
-                          )
-                        })
-                      )
-                    }
+                              </Thumbnail>
+                              <Modal
+                                show={this.state.show}
+                                onHide={this.handleClose}
+                              >
+                                <Modal.Header closeButton>
+                                  <Modal.Title>{ this.state.currentDish }</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                  <div className="dummy-content">
+                                    <span>
+                                      <h4>This is a dummy page.</h4>
+                                      <h5><i>Directly ordering dish <strong>{this.state.currentDish}</strong> from this restaurant.</i></h5>
+                                    </span>
+                                  </div>
+                                </Modal.Body>
+                              </Modal>
+                            </Col>
+                        )
+                      })
+                    )
                   })
                 )
               }

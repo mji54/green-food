@@ -50,12 +50,12 @@ class Bubble extends Component {
     super(props)
 
     this.state = {
-      time: 1000, // ideal time for each popup
+      time: 4000, // ideal time for each popup
       delay: 1000, // transition delay time for each popup
       popupIndex: -2, // # of timeout to wait before start showing dishes
+      display: false,
       hidden: "hidden"
     };
-    this.handleLoad = this.handleLoad.bind(this);
   }
 
   componentDidMount() {
@@ -65,6 +65,12 @@ class Bubble extends Component {
         console.log("increase popupIndex " + popupIndex);
         console.log("time taken " + (this.state.time + this.state.delay));
         this.setState({popupIndex: popupIndex + 1});
+        if (this.state.popupIndex === 1) {
+          console.log("change display");
+          this.setState({display: true});
+        } else if (this.state.popupIndex === 4) {
+          this.setState({display: false});
+        }
       }
     }, (this.state.time + this.state.delay)); // delay is total display time for each popup
   }
@@ -73,13 +79,9 @@ class Bubble extends Component {
     clearInterval(this.interval)
   }
 
-  handleLoad() {
-
-  }
-
 //this.handleTime(interval, imgIndex)
   render() {
-    const { time, popupIndex, delay } = this.state;
+    const { time, popupIndex, delay, display } = this.state;
 
     return (
       <div>
@@ -87,6 +89,8 @@ class Bubble extends Component {
           index = {popupIndex}
           wait={time}
           delay={delay}
+          display={display}
+          num = {numOfMeals}
           title = {
             popupIndex > 0 && popupIndex < 4 ?
             contentList(popupIndex).title : ""

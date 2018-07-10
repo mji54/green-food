@@ -6,7 +6,7 @@ import Search from 'react-search';
 
 import '../css/selected.css';
 import { MENU } from "../menu";
-import { updateInput, selectDishType } from '../actions/index';
+import { updateInput, searchResult } from '../actions/index';
 
 // const searchBar = (
 //   <Grid fluid>
@@ -28,7 +28,7 @@ const mapDispatchToProps = dispatch => {
   // console.log("dispatch");
   return {
     updateInput: input => dispatch(updateInput(input)),
-    selectDishType: index => dispatch(selectDishType(index))
+    searchResult: index => dispatch(searchResult(index))
   };
 };
 
@@ -55,13 +55,35 @@ class SearchDish extends Component {
 
   handleSubmit(input) {
     let result = [];
+    let dishes = []
     MENU.map(meal => {
-      let dish = meal.dishes.filter(dish => {
-        return dish.dish.toLowerCase().includes(input.toLowerCase()) || !input
+      console.log(meal.id);
+      dishes = meal.dishes.filter(dish => {
+        // console.log(dish.dish.toLowerCase());
+        return (dish.dish.toLowerCase().includes(input.toLowerCase()) || !input)
       });
-      dish.map(item => result.push(item))
+      console.log("dish.length is " + dishes.length);
+      console.log(dishes);
+      if (dishes.length > 0) result.push({typeId: meal.id, dishes: dishes});
     });
-    console.log(result);
+
+    if (dishes.length === 0) {
+      MENU.map(meal => {
+        let dishBackup = [];
+        meal.dishes.map(dish => {
+          // console.log(dish.dish.toLowerCase());
+          dish.dish.toLowerCase().split(' ').map(word => {
+            if (input.toLowerCase().includes(word.toLowerCase()) || !input) dishBackup.push(dish);
+          })
+        });
+        // console.log(meal.id);
+        // console.log(dishBackup);
+        if (dishBackup.length > 0) result.push({typeId: meal.id, dishes: dishBackup});
+      })
+    }
+
+    // console.log(result);
+    this.props.searchResult(result);
     // return result.length > 0 ? this.props.selectDishType(result[0].id): -1;
 
   }

@@ -1,4 +1,4 @@
-import { SELECT_DISH_TYPE, UPDATE_INPUT } from '../constants';
+import { SELECT_DISH_TYPE, UPDATE_INPUT, SEARCH_RESULT } from '../constants';
 
 
 export const selectDishType = index => ({
@@ -9,6 +9,11 @@ export const selectDishType = index => ({
 export const updateInput = input => ({
   type: UPDATE_INPUT,
   input
+})
+
+export const searchResult = array => ({
+  type: SEARCH_RESULT,
+  array
 })
 //
 // export const searchForDish = input => ({

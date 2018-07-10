@@ -8,8 +8,6 @@ import '../css/popup.css';
 import { Grid, Col, Row, Image, Popover } from 'react-bootstrap';
 import { selectDishType } from '../actions/index';
 
-// PROBLEM: there's delays
-
 const mapDispatchToProps = dispatch => {
   // console.log("dispatch");
   return {
@@ -23,61 +21,70 @@ class Popup extends Component {
 
     this.state = {
       class: "hidden",
-      show: true,
+      show: false,
       isMounted: false,
+      display: props.display
     }
     this.handleClick = this.handleClick.bind(this);
   }
 
-//   state = {
-//     isMounted: false,
-//   };
-//
-// componentDidMount() {
-//     this.setState({ isMounted: true }, () => {
-//       if (this.state.isMounted) {
-//         this.setState({ isMounted: false });
-//         {
-//           // do something
-//           // this.props.onClick(...)
-//         }
-//       }
-//     });
-//   }
-
-  componentWillMount() {
-    this.timer = setTimeout(() => this.show(),(this.props.wait + this.props.delay)*3 + this.props.delay); // after -2, -1, 0
-  }
-
   show() {
     console.log("start showing");
-    this.setState({class : 'popup'});
+    this.setState({class : 'popup', show: true});
   }
 
-  componentDidMount() {
-    // this.setState({ isMounted: true }, () => {
-    //   if (this.state.isMounted) {
-    //     console.log("is mounted");
-    //     this.setState({ isMounted: false });
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.display === false) {
+      if (prevState.display !== this.state.display) {
+        console.log("showing");
+        this.show();
+        // this._timer = setTimeout(() => this.show(), this.props.delay/2);
+        // this._timer = setTimeout(() => this.setState({show: false}), this.props.wait + this.props.delay);
+        this._interval = setInterval(() => {
+          console.log("interval");
+          this.setState({show: false});
+          this._internalTimer = setTimeout(() => this.setState({show: true}), this.props.delay);
+        }, (this.props.wait + this.props.delay/2));
 
-        this.timeout = setTimeout(() => this.hide(), (this.props.wait + this.props.delay)*6 + this.props.delay); // total popups time include transition time
+        this._stopInterval = setTimeout(() => {
+          console.log("clear");
+          this.setState({show: false});
+          clearTimeout(this._internalTimer);
+          clearInterval(this._interval);
+        }, this.props.wait * this.props.num + this.props.delay);
+      }
+    }
+  }
 
-        this.interval = setInterval(() => {
-          this.setState({show: !this.state.show});
-          setTimeout(() => this.setState({show: !this.state.show}), this.props.delay);
-        }, (this.props.wait + this.props.delay));
-        console.log("interval " + this.interval);
-    //   }
-    // })
+  static getDerivedStateFromProps(props, state) {
+    if (state.display === true) {
+      if (props.display !== state.display) {
+        return {
+          class: 'hidden',
+          show: false,
+          display: props.display
+        };
+      }
+    }
+
+    if (props.display !== state.display) {
+      return {
+        display: props.display
+      };
+    }
+
+    // Return null to indicate no change to state.
+    return null;
   }
 
   componentWillUnmount() {
-    console.log("clear interval " + this.interval);
-    console.log("clear timer " + this.timer);
-    console.log("clear timeout " + this.timeout);
-    clearInterval(this.interval);
-    clearTimeout(this.timer);
-    clearTimeout(this.timeout);
+    // console.log("clear internal timer" + this._internalTimer);
+    // console.log("clear interval " + this._interval);
+    // console.log("clear timer " + this._timer);
+    // console.log("clear timeout " + this._timeout);
+    clearTimeout(this._stopInterval);
+    clearTimeout(this._internalTimer);
+    clearInterval(this._interval);
   }
 
   hide() {

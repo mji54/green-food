@@ -8,6 +8,7 @@ import SelectedDish from './SelectedDish';
 import TopNav from './TopNav';
 import Education from './Education';
 import SearchDish from './SearchDish';
+import Footer from './Footer';
 
 const mapStateToProps = state => {
   return {};
@@ -25,6 +26,7 @@ class Selected extends Component {
             <Education />
             <SearchDish />
             <SelectedDish />
+            <Footer />
           </Col>
         </Row>
       </Grid>
