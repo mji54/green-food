@@ -5,6 +5,8 @@ import Zoom from 'react-reveal/Zoom';
 // import Pulse from 'react-reveal/Pulse';
 
 import '../css/popup.css';
+import '../css/responsive.css';
+
 import { Popover } from 'react-bootstrap';
 import { selectDishType, resetInput } from '../actions/index';
 
@@ -40,14 +42,14 @@ class Popup extends Component {
 
           this.setState({show: false});
           this._internalTimer = setTimeout(() => this.setState({show: true}), this.props.delay);
-        }, (this.props.wait + this.props.delay/2));
+        }, (this.props.wait + this.props.delay/1.5));
 
-        this._stopInterval = setTimeout(() => {
-
-          this.setState({show: false});
-          clearTimeout(this._internalTimer);
-          clearInterval(this._interval);
-        }, this.props.wait * this.props.num + this.props.delay);
+        // this._stopInterval = setTimeout(() => {
+        //
+        //   this.setState({show: false});
+        //   clearTimeout(this._internalTimer);
+        //   clearInterval(this._interval);
+        // }, this.props.wait * this.props.num + this.props.delay);
       }
     }
   }
@@ -74,7 +76,7 @@ class Popup extends Component {
   }
 
   componentWillUnmount() {
-    clearTimeout(this._stopInterval);
+    // clearTimeout(this._stopInterval);
     clearTimeout(this._internalTimer);
     clearInterval(this._interval);
   }

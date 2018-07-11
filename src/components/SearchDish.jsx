@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom';
 import { Grid, Row, Col, FormControl, Button } from 'react-bootstrap';
 
 import '../css/selected.css';
+import '../css/responsive.css';
+
 import { MENU } from "../menu";
 import { updateInput, searchResult } from '../actions/index';
 

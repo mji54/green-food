@@ -12,8 +12,12 @@ import App from './components/App';
 import Selected from './components/Selected';
 import Restaurant from './components/Restaurant';
 
+console.log("INDEX.JS");
+
 const history = createHistory();
 const store = createStore(reducer);
+
+console.log("INDEX.JS after store");
 
 ReactDOM.render(
 
@@ -21,7 +25,7 @@ ReactDOM.render(
     <main>
       <Router path="/" history={history}>
         <Switch>
-            <Route exact path="/" render={({ match }) => <App match={match} {...this.props} />} />
+            <Route exact path="/green-food/" render={({ match }) => <App match={match} {...this.props} />} />
             <Route exact path="/selected" component={Selected} />
             <Route exact path="/restaurant" component={Restaurant} />
         </Switch>

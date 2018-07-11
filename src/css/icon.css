@@ -13,25 +13,28 @@
     margin: auto;
     background-color: rgba(0,0,0,0);
     border-radius: 0;
+    /* border: 1px solid red; */
 }
 
 .icon-inner {
+  /* width: 100px; */
   position: absolute;
-  left: 85%;
-  top: 85%;
-  width: 80px;
-  height: 80px;
   object-fit: cover;
   margin: auto;
   background: rgba(0,0,0,0);
   display: flex;
-  align-items: center;
+  /* align-items: left; */
+  justify-content: flex-end;
+  /* border: 1px solid red; */
 }
 
 .icon-content {
-  width: 100%;
-  display: flex;
-  align-items: center;
+  /* width: 100%; */
+  /* display: flex; */
+  /* align-items: right; */
+  /* align-self: left; */
+  /* margin: 0 auto; */
+  /* border: 1px solid blue; */
 }
 
 .icon-img {
@@ -40,4 +43,11 @@
   object-fit: cover;
   margin: 0 auto;
   box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3)
+}
+
+.icon-popover {
+  /* border: 1px solid red; */
+  margin-right: 77px;
+  text-align: center;
+
 }

@@ -1,0 +1,193 @@
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  body {
+    border: 1px solid brown;
+  }
+
+  /* icon.css */
+  .icon-inner {
+    left: 82%;
+    top: 85%;
+    /* border: 1px solid blue; */
+    width: 204px;
+    height: 77px;
+  }
+
+  .icon-content {
+    width: 77px;
+    height: 100%;
+
+  }
+
+  .icon-popover {
+    /* border: 1px solid red; */
+    margin-right: 79px;
+    text-align: center;
+
+  }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 960px) and (max-width: 1199px) {
+  body {
+    border: 1px solid yellow;
+  }
+
+  /* icon.css */
+  .icon-inner {
+    height: 73px;
+    width: 200px;
+    left: 77.5%;
+    top: 85%;
+    /* border: 1px solid blue; */
+  }
+
+  .icon-content {
+    width: 73px;
+    height: 100%;
+
+  }
+
+  .icon-popover {
+    /* border: 1px solid red; */
+    margin-right: 75px;
+    text-align: center;
+
+  }
+
+
+}
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+  body {
+    border: 1px solid red;
+  }
+
+  /* selected.css */
+  .dish-display {
+    width: 75%;
+  }
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  body {
+    border: 1px solid orange;
+  }
+
+  /* selected.css */
+  .dish-display {
+    width: 77%;
+  }
+
+  /* icon.css */
+  .icon-inner {
+    left: 71.5%;
+    top: 85%;
+    /* border: 1px solid blue; */
+    width: 200px;
+    height: 70px;
+  }
+
+  .icon-content {
+    width: 70px;
+    height: 100%;
+
+  }
+
+  .icon-popover {
+    margin-right: 72px;
+    text-align: center;
+
+  }
+
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+
+  body {
+    border: 1px solid green;
+  }
+
+  /* selected.css */
+  .dish-display {
+    width: 80%;
+  }
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  body {
+    border: 1px solid blue;
+  }
+
+  /* selected.css */
+  .dish-display {
+    width: 90%;
+  }
+  .thumb-col {
+    display: block;
+    width: 50%;
+  }
+
+  /* icon.css */
+  .icon-inner {
+    left: 56%;
+    top: 88%;
+    /* border: 1px solid blue; */
+    width: 200px;
+    height: 65px;
+  }
+
+  .icon-content {
+    width: 65px;
+    height: 100%;
+
+  }
+
+  .icon-popover {
+    margin-right: 67px;
+    text-align: center;
+
+  }
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+  body {
+    border: 1px solid purple;
+  }
+
+  /* selected.css */
+  .dish-display {
+    width: 90%;
+  }
+  .thumb-col {
+    display: block;
+    width: 100%;
+  }
+
+  /* icon.css */
+  .icon-inner {
+    left: 45%;
+    top: 88%;
+    border: 1px solid blue;
+    width: 200px;
+    height: 60px;
+  }
+
+  .icon-content {
+    width: 60px;
+    height: 100%;
+
+  }
+
+  .icon-popover {
+    margin-right: 62px;
+    text-align: center;
+
+  }
+}

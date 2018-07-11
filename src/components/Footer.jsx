@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { Col } from 'react-bootstrap';
 
 import '../css/footer.css';
+import '../css/responsive.css';
 
 class Footer extends Component {
 
@@ -11,7 +12,7 @@ class Footer extends Component {
       <Col xs={12} md={12} xsHidden className="footer">
         <Col xs={11} md={11} className="footer-content">
           <Col xs={3} md={3} className="footer-logo">
-            <a className="footer-logo-wrapper" href="/">
+            <a className="footer-logo-wrapper" href="/green-food/">
               <img src={require("../img/cn-logo-footer.svg")} alt="cn-logo-footer" />
             </a>
           </Col>

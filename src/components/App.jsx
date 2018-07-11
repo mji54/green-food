@@ -6,6 +6,8 @@ import '../css/app.css';
 import Bubble from './Bubble';
 import TopNav from './TopNav';
 
+console.log("APP beginning");
+
 const dummyRestaurant = [
   {
     name: 'The Mighty Restaurant',
@@ -37,7 +39,7 @@ const dummyRestaurant = [
     type: 'Pizza / Sandwiches',
     hours: 'pickup & delivery',
   },
-]
+];
 
 const gridInstance = (
   <Grid fluid>
@@ -64,7 +66,7 @@ const gridInstance = (
       <div className="restaurant-wrapper">
         {dummyRestaurant.map( (el, i) => (
           <Col xs={12} md={12} key={i} className="restaurant">
-            <Link to={"restaurant/"} className="clear-link">
+            <Link to={"/restaurant"} className="clear-link">
               <h2>{el.name}</h2>
             </Link>
             <h4>{el.type}</h4>
@@ -77,9 +79,12 @@ const gridInstance = (
   </Grid>
 );
 
+console.log("APP before component APP");
+
 class App extends Component {
 
   render() {
+    console.log("APP constructor");
     return (
       <div className="app-row">
         {gridInstance}
@@ -88,5 +93,7 @@ class App extends Component {
     )
   }
 }
+
+console.log("APP after component APP;");
 
 export default withRouter(App);

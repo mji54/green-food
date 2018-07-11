@@ -4,6 +4,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { Grid, Col, Row,Thumbnail, Tooltip, OverlayTrigger, Modal } from 'react-bootstrap';
 
 import '../css/selected.css';
+import '../css/responsive.css';
 
 const mapStateToProps = state => ({
    dishes: state.dishes

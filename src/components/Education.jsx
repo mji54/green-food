@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Carousel } from 'react-bootstrap';
 
+import '../css/responsive.css';
+
 class Education extends Component {
 
   render() {

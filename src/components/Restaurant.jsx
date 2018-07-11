@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom';
 import { Grid, Col, Row } from 'react-bootstrap';
 
 import '../css/selected.css';
+import '../css/responsive.css';
+
 import TopNav from './TopNav';
 import Footer from './Footer';
 

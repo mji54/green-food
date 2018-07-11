@@ -4,7 +4,9 @@ import { withRouter, Link } from 'react-router-dom';
 import Zoom from 'react-reveal/Zoom';
 
 import '../css/icon.css';
-import { Image } from 'react-bootstrap';
+import '../css/responsive.css';
+
+import { Image, Popover } from 'react-bootstrap';
 import { selectDishType, resetInput } from '../actions/index';
 
 
@@ -24,14 +26,16 @@ class Icon extends Component {
 
     this.state = {
       show: props.show,
-      class: 'hidden'
+      class: 'hidden',
+      popover: 'icon-popover',
     }
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.show !== this.state.show) {
-      this.setState({class: 'icon-wrapper'})
+      this.setState({class: 'icon-wrapper'});
+      this._timeout = setTimeout(() => this.setState({popover: 'hidden'}), 5000);
     }
   }
 
@@ -44,16 +48,28 @@ class Icon extends Component {
     return null;
   }
 
+  componentWillUnmount() {
+    clearTimeout(this._timeout);
+  }
+
   handleClick(i) {
     this.props.selectDishType(i);
     this.props.resetInput();
   }
 
   render() {
+
     return (
       <div className={this.state.class}>
         <Zoom cascade when={this.state.show}>
             <div className='icon-inner'>
+              <Popover
+                id="popover-basic"
+                className={this.state.popover}
+                placement="left"
+              >
+                Click for more organic food.
+              </Popover>
               <Link
                 to={'/selected'}
                 className="icon-content"
@@ -62,8 +78,8 @@ class Icon extends Component {
                 <Image className="icon-img" src={require("../img/org-icon.png")} circle />
               </Link>
             </div>
-          </Zoom>
-        </div>
+        </Zoom>
+      </div>
     )
   }
 }
