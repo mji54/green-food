@@ -1,9 +1,6 @@
-import { UPDATE_INPUT } from '../constants.js';
+import { UPDATE_INPUT, RESET_INPUT } from '../constants.js';
 
 import { bake_cookie, read_cookie } from 'sfcookies';
-import { MENU } from "../menu"
-
-// dish-type-id, user-input, selected-type, selected-dish
 
 export default (state = '', action) => {
   let input = null;
@@ -13,10 +10,10 @@ export default (state = '', action) => {
       input = action.input;
       bake_cookie('input', input);
       return input;
-    // case SELECT_DISH_TYPE:
-    //   index = action.index;
-    //   bake_cookie('index', index);
-    //   return index;
+    case RESET_INPUT:
+      input = '';
+      bake_cookie('input', input);
+      return input;
     default:
       return state;
   }

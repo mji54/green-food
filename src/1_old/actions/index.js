@@ -1,5 +1,5 @@
 // import { SIGNED_IN, SET_GOALS } from '../constants';
-import { UPDATE_SEARCH, FILTER_MENU } from '../constants';
+import { UPDATE_SEARCH, FILTER_MENU} from '../constants';
 
 // export const logUser = email => ({
 //     type: SIGNED_IN,
@@ -13,9 +13,9 @@ import { UPDATE_SEARCH, FILTER_MENU } from '../constants';
 export const updateSearch = input => ({
   type: UPDATE_SEARCH,
   term: input
-})
+});
 
 export const filterMenu = term => ({
   type: FILTER_MENU,
   term
-})
+});

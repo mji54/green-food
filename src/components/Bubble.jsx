@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Route, withRouter } from 'react-router-dom';
-import { Grid, Col, Row, Image, Popover } from 'react-bootstrap';
-// import Popup from 'reactjs-popup';
-// import { incrementTimer } from "../actions/index";
+import { withRouter } from 'react-router-dom';
+import { Image } from 'react-bootstrap';
+
 import Popup from './Popup';
-
-
-import '../css/bubble.css';
+import Icon from './Icon';
 
 const numOfMeals = 3;
 
@@ -24,25 +20,13 @@ var content = [{
 
 const contentList = index => {
   if (index < 1 || index > 3) return;
-  // console.log(content[index-1]);
   return content[index-1];
 }
 
 const popupMeal = index => {
   if (index < 1 || index > 3) return;
-
   return  <Image className="popup-img" src={require("../img/popup-meal-" + index + ".jpg")} circle />
 }
-
-const mapStateToProps = state => {
-  return {}
-}
-
-const mapDispatchToProps = dispatch => {
-  // console.log("dispatch");
-  return {
-  };
-};
 
 class Bubble extends Component {
 
@@ -50,11 +34,12 @@ class Bubble extends Component {
     super(props)
 
     this.state = {
-      time: 4000, // ideal time for each popup
-      delay: 1000, // transition delay time for each popup
+      time: 2000, // ideal time for each popup
+      delay: 600, // transition delay time for each popup
       popupIndex: -2, // # of timeout to wait before start showing dishes
       display: false,
-      hidden: "hidden"
+      hidden: "hidden",
+      icon: false
     };
   }
 
@@ -62,26 +47,23 @@ class Bubble extends Component {
     this.interval = setInterval(() => {
       const { popupIndex } = this.state;
       if (popupIndex < 4) {
-        console.log("increase popupIndex " + popupIndex);
-        console.log("time taken " + (this.state.time + this.state.delay));
         this.setState({popupIndex: popupIndex + 1});
         if (this.state.popupIndex === 1) {
-          console.log("change display");
           this.setState({display: true});
         } else if (this.state.popupIndex === 4) {
           this.setState({display: false});
+          this.setState({icon: true});
         }
       }
     }, (this.state.time + this.state.delay)); // delay is total display time for each popup
   }
 
   componentWillUnmount() {
-    clearInterval(this.interval)
+    clearInterval(this.interval);
   }
 
-//this.handleTime(interval, imgIndex)
   render() {
-    const { time, popupIndex, delay, display } = this.state;
+    const { time, popupIndex, delay, display, icon } = this.state;
 
     return (
       <div>
@@ -104,10 +86,13 @@ class Bubble extends Component {
             popupMeal(popupIndex) : ""
           }
         />
+      <Icon
+        index = {popupIndex}
+        show = {icon}
+      />
       </div>
-
     )
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Bubble));
+export default withRouter(Bubble);

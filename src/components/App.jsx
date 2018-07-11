@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Route, withRouter, Switch, Link } from 'react-router-dom';
-
-// import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { Link, withRouter, Switch, Route } from 'react-router-dom';
-import { Grid, Row, Col, Clearfix, Navbar, FormGroup, FormControl, Button, Checkbox } from 'react-bootstrap';
+import { withRouter, Link } from 'react-router-dom';
+import { Grid, Row, Col, Navbar, FormControl, Checkbox } from 'react-bootstrap';
 
 import '../css/app.css';
 import Bubble from './Bubble';
@@ -44,26 +39,11 @@ const dummyRestaurant = [
   },
 ]
 
-// 1/12 || 8/12 || 2/12 || 2/12
-// 12
-// 12
-// 12 w/ dummy
-
-const navBar = (
-  <Navbar>
-    <Navbar.Header className="header">
-      <Navbar.Toggle />
-    </Navbar.Header>
-  </Navbar>
-
-)
-
 const gridInstance = (
   <Grid fluid>
     <Row className="show-grid">
       <div className="navbar navbar-default navbar-fixed-top">
         <TopNav />
-
         <Col xs={12} md={12} className="search-col">
           <FormControl className="search" type="text" placeholder="Search" />
         </Col>
@@ -80,10 +60,13 @@ const gridInstance = (
           </div>
         </Col>
       </div>
+
       <div className="restaurant-wrapper">
         {dummyRestaurant.map( (el, i) => (
           <Col xs={12} md={12} key={i} className="restaurant">
-            <h2>{el.name}</h2>
+            <Link to={"restaurant/"} className="clear-link">
+              <h2>{el.name}</h2>
+            </Link>
             <h4>{el.type}</h4>
             <h5>{el.hours.toUpperCase()}</h5>
           </Col>
@@ -98,17 +81,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="app-row">
         {gridInstance}
         <Bubble />
       </div>
-
     )
   }
 }
 
-function mapStateToProps(state) {
-  return {}
-}
-
-export default withRouter(connect(mapStateToProps, null)(App));
+export default withRouter(App);

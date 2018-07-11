@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Route, withRouter, Switch, Link } from 'react-router-dom';
-import { Grid, Row, Col, Clearfix, Navbar, FormControl, Button } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
+import { Col } from 'react-bootstrap';
 
 import '../css/footer.css';
 
@@ -22,8 +21,4 @@ class Footer extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {}
-}
-
-export default withRouter(connect(mapStateToProps, null)(Footer));
+export default withRouter(Footer);

@@ -1,8 +1,11 @@
 .footer {
   height: 114px;
+  line-height: 114px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   border-top: 1px solid #E5EAE7;
   box-shadow: 0px -2px #E5EAE7;
-  display: flex;
 }
 
 .footer-content {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Route, withRouter } from 'react-router-dom';
-import { Grid, Col, Row, Image, Popover } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
+import { Grid, Col, Row } from 'react-bootstrap';
 
 import '../css/selected.css';
 import SelectedDish from './SelectedDish';
@@ -10,29 +9,26 @@ import Education from './Education';
 import SearchDish from './SearchDish';
 import Footer from './Footer';
 
-const mapStateToProps = state => {
-  return {};
-}
-
 class Selected extends Component {
 
   render() {
     return (
-      <Grid fluid>
-        <Row className="show-grid">
-          <Col className="col-container" xs={12} md={10}>
-            <TopNav />
-            <div className="space"></div>
-            <Education />
-            <SearchDish />
-            <SelectedDish />
-            <Footer />
-          </Col>
-        </Row>
-      </Grid>
-
+      <div>
+        <Grid fluid className="selected-grid">
+          <Row className="show-grid selected-row">
+            <Col className="col-container" xs={12} md={10}>
+              <TopNav />
+              <div className="space"></div>
+              <Education />
+              <SearchDish />
+              <SelectedDish />
+            </Col>
+          </Row>
+        </Grid>
+        <Footer />
+      </div>
     )
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Selected));
+export default withRouter(Selected);

@@ -1,3 +1,20 @@
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  position: relative;
+  height: 100%;
+  padding-bottom: 114px;
+}
+
+.app-row {
+  height: 100%;
+  margin-bottom: -114px; /* to get rid of footer space*/
+}
+
 .restaurant-wrapper {
   margin-top: 200px;
 }
@@ -6,25 +23,27 @@
   width: 100%;
   border-bottom: 1px solid #E5EAE7;
   padding: 25px;
+}
 
+.clear-link {
+  color: black;
+}
+
+.clear-link:hover {
+  color: black;
 }
 
 .logo-wrapper {
-  /* border: 1px solid green; */
   display: flex;
   align-items: center;
-  /* width: 37px; */
   height: 100%;
-  /* height: 41px; */
   margin: 0 auto;
   text-align: center;
   vertical-align: middle;
 }
 
 .logo svg {
-  /* border: 1px solid blue; */
   width: 30%;
-  /* height: 50%; */
   display: block;
   margin: 0 auto;
   text-align: center;
@@ -35,29 +54,24 @@
   width: 100%;
   height: 100%;
   display: block;
-  /* border: 1px solid red; */
   border-radius: 0px;
   border: none;
   shadow: none;
 }
 
 .logo, .location-wrapper, .user-col, .search-col {
-  /* display: block; */
   border: 1px solid #E5EAE7;
-  /* border-bottom:none; */
   padding: 0;
   display: flex;
   align-items: center;
   margin: 0 auto;
   height: 70px;
-  /* margin: 0 auto; */
   text-align: center;
   border-top: none;
   border-left: none;
 }
 
 .user-col {
-  /* border: 1px solid red; */
   padding: 0;
 }
 
@@ -81,7 +95,6 @@
 
 .toggle-row {
   height: 60px;
-  /* justify-content: flex-start; */
   padding: 0;
   display: flex;
   align-items: center;
@@ -92,11 +105,7 @@
 .open-now, .delivery {
   margin-left: 2em;
   display: block;
-  /* border: 1px solid red; */
   padding-left: 1em;
   padding-right: 1em;
-  /* height: 100%; */
 
-  /* padding: 0.5em; */
-  /* width: 20%; */
 }
