@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import { Grid, Row, Col, Navbar, FormControl, Checkbox } from 'react-bootstrap';
+import { Grid, Row, Col, FormControl, Checkbox } from 'react-bootstrap';
 
 import '../css/app.css';
 import Bubble from './Bubble';

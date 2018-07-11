@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route, withRouter, Switch, Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import Zoom from 'react-reveal/Zoom';
-// import Pulse from 'react-reveal/Pulse';
 
 import '../css/icon.css';
-import { Grid, Col, Row, Image, Popover } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 import { selectDishType, resetInput } from '../actions/index';
 
 
