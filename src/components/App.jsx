@@ -79,8 +79,6 @@ const gridInstance = (
 
 class App extends Component {
 
-  console.log("HI");
-
   render() {
     return (
       <div className="app-row">

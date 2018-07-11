@@ -31,7 +31,9 @@ const popupMeal = index => {
 class Bubble extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
+
+    console.log("BUBBLE constructor");
 
     this.state = {
       time: 2000, // ideal time for each popup
